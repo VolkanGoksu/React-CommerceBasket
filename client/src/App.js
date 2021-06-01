@@ -5,9 +5,10 @@ import { Route } from "react-router-dom";
 import Products from "./components/Products";
 import Cart from "./components/Cart";
 
-import { data } from "./data";
+import {connect} from 'react-redux';
 
-export default function App() {
+const App =(props) =>{
+  console.log(props.bookList);
   return (
     <div className="App">
 
@@ -16,3 +17,11 @@ export default function App() {
     </div>
   );
 }
+
+
+const mapStateToProps = state =>{
+  return{
+    bookList : state.bookList
+  }
+}
+export default connect(mapStateToProps)(App);
