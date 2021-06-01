@@ -8,7 +8,7 @@ import Cart from "./components/Cart";
 import {connect} from 'react-redux';
 
 const App =(props) =>{
-  console.log(props.bookList);
+  //console.log(props.bookList);
   return (
     <div className="App">
 
@@ -19,9 +19,5 @@ const App =(props) =>{
 }
 
 
-const mapStateToProps = state =>{
-  return{
-    bookList : state.bookList
-  }
-}
-export default connect(mapStateToProps)(App);
+
+export default connect()(App);
