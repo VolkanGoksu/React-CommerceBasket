@@ -14,7 +14,7 @@ const Products = props => {
       </h2>
       {props.bookList.map(book=>(<div className="book">
         <img
-          src={book.img}
+          src={book.image}
           alt={book.name}
         />
         <div>
