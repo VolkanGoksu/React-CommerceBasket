@@ -1,8 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import {connect} from 'react-redux'
+
+import {addBasket} from '../actions'
 const Products = props => {
-  console.log(props.bookList);
+  console.log(props)
+  
   return (
     <div>
       <h2>
@@ -18,7 +21,7 @@ const Products = props => {
           <h4>{book.name}</h4>
           <p>{book.author}</p>
           <p>Fiyat: &#8378; {book.price}</p>
-          <button>Sepete Ekle</button>
+          <button onClick={()=>props.addBasket(book)} >Sepete Ekle</button>
         </div>
       </div>))}
       
@@ -28,7 +31,11 @@ const Products = props => {
 
 const mapStateToProps = state =>{
   return{
-    bookList : state.bookList
+    bookList : state.bookList,
+    cart: state.cart
   }
 }
-export default connect(mapStateToProps)(Products);
+
+
+
+export default connect(mapStateToProps,{addBasket})(Products);
